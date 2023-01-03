@@ -23,7 +23,7 @@ describe("Todo Application", function () {
 
   test("Creates a todo and responds with json at /todos POST endpoint", async () => {
     const response = await agent.post("/todos").send({
-      title: "Buy milk",
+      tittle: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
     });
@@ -37,7 +37,7 @@ describe("Todo Application", function () {
 
   test("Marks a todo with the given ID as complete", async () => {
     const response = await agent.post("/todos").send({
-      title: "Buy milk",
+      tittle: "Buy milk",
       dueDate: new Date().toISOString(),
       completed: false,
     });
@@ -86,4 +86,4 @@ describe("Todo Application", function () {
         const parsedUpdateResponse = JSON.parse(markCompleteResponse.text);
         expect(parsedUpdateResponse.completed).toBe(true);
         });
-    })
+    });
