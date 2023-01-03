@@ -23,7 +23,7 @@ describe("Todo test suite", function () {
 
         test("Create a todo and responds with json at /todos POST end point", async () => {
             const response = await agent.post("/todos").send({
-                title: "Buy milk",
+                tittle: "Buy milk",
                 dueDate: new Date().toISOString(),
                 completed: false,
             });
@@ -37,7 +37,7 @@ describe("Todo test suite", function () {
 
         test("Marks a todo with the given ID as complete", async () => {
             const response = await agent.post("/todos").send({
-                title: "Buy milk",
+                tittle: "Buy milk",
                 dueDate: new Date().toISOString(),
                 completed: false,
             });
@@ -54,7 +54,7 @@ describe("Todo test suite", function () {
 
         test("Fetches all todos in the database using /todos endpoint", async () => {
             await agent.post("/todos").send({
-              title: "Buy xbox",
+              tittle: "Buy xbox",
               dueDate: new Date().toISOString(),
               completed: false,
             });
@@ -67,12 +67,12 @@ describe("Todo test suite", function () {
             const parsedResponse = JSON.parse(response.text);
             
             expect(parsedResponse.length).toBe(4);
-            expect(parsedResponse[3]["title"]).toBe()
+            expect(parsedResponse[3]["tittle"]).toBe("Buy ps3");
           });
     
         test("Deletes a todo with the given ID if it exists and sends a boolean response", async () => {
          const response = await agent.post("/todos").send({
-          title: "Dont know todo",
+          tittle: "Dont know todo",
           dueDate: new Date().toISOString(),
           completed: false,
       });

@@ -4,6 +4,14 @@ const { Todo } = require("./models");
 const bodyPaser = require('body-parser');
 app.use(bodyPaser.json());
 
+app.set("view engin", "ejs");
+
+// eslint-disable-next-line no-undef
+app.get("/", ( request, response) => {
+  response.render('index');
+
+});
+
 app.get("/", function ( request, response) {
     response.send("Hello world");
 });
