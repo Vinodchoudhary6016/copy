@@ -86,5 +86,4 @@ describe("Todo Application", function () {
         const parsedUpdateResponse = JSON.parse(markCompleteResponse.text);
         expect(parsedUpdateResponse.completed).toBe(true);
         });
-    
 });
