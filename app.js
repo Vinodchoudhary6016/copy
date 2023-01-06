@@ -4,14 +4,6 @@ const { Todo } = require("./models");
 const bodyPaser = require('body-parser');
 app.use(bodyPaser.json());
 
-app.set("view engin", "ejs");
-
-// eslint-disable-next-line no-undef
-app.get("/", ( request, response) => {
-  response.render('index');
-
-});
-
 app.get("/", function ( request, response) {
     response.send("Hello world");
 });
@@ -55,7 +47,7 @@ app.put("/todos/:id/markAsCompleted", async (request, response) => {
 });
 
 app.delete("/todos/:id", async (request, response) => {
-    console.log("Delete a todo by ID:", request.params.id);
+    console.log("we have to Delete a Todo by ID:", request.params.id);
 
     const deleteTodo = await Todo.destroy({where:{id:request.params.id}})
     return response.send(deleteTodo ? true : false)
