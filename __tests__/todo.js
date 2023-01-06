@@ -85,5 +85,5 @@ describe("Todo Application", function () {
         const markCompleteResponse = await agent.put(`/todos/${todoID}/markASCompleted`).send();
         const parsedUpdateResponse = JSON.parse(markCompleteResponse.text);
         expect(parsedUpdateResponse.completed).toBe(true);
-        });
+      });
 });
